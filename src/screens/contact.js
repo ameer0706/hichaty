@@ -4,7 +4,7 @@ import {
   ImageBackground,
   StyleSheet, PermissionsAndroid, ActivityIndicator, Image, Text,
   View, Keyboard,
-  TextInput, RefreshControl, TouchableOpacity, Share, DeviceEventEmitter, SafeAreaView, Dimensions, Platform
+  TextInput, RefreshControl, TouchableOpacity, Share, DeviceEventEmitter, SafeAreaView, Dimensions, Platform, AppState
 } from 'react-native';
 import Card from '../components/card';
 import AppContext from '../context/AppContext';
@@ -221,13 +221,16 @@ const contact = ({ navigation, route }) => {
 
   useEffect(() => {
     // console.log(users, "users>>>>>>>>>>>>>>>>>");
-
-    let subscription = DeviceEventEmitter.addListener("GotoHomePage", (event) => { gotoReloade() })
+     const subscription = DeviceEventEmitter.addListener ('change', ()=> {
+      //Your code here...
+    
+    //  let subscription = DeviceEventEmitter.addListener("GotoHomePage", (event) => { gotoReloade() })
     AsyncStorageHelper.getData("Contact_Status").then((responseData) => {
       if (responseData) {
         setContactStatus(true)
       }
     })
+   })
     if (users !== [] && users.length > 0 && ContactStatus !== true) {
       getFirstTimedata(users);
     }
@@ -562,10 +565,10 @@ const contact = ({ navigation, route }) => {
         .then(() => {
           Contacts.getAll()
           .then(contacts => {
-            console.log('contacts ::' , contacts)
             setcontactList(contacts)
             setshowLoaderPageing(true)
-            let arrUserAndContact = [...mainArray, ...contactList]
+            let arrUserAndContact = [...mainArray, ...contacts]
+            console.log('contacts ::' , contacts)
             setshowArray(arrUserAndContact)
             AsyncStorageHelper.setData("Contact_Status", "status")
             setTimeout(() => {
