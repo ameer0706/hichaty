@@ -221,6 +221,7 @@ const contact = ({ navigation, route }) => {
 
   useEffect(() => {
     // console.log(users, "users>>>>>>>>>>>>>>>>>");
+
      const subscription = DeviceEventEmitter.addListener ('change', ()=> {
       //Your code here...
     
