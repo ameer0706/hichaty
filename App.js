@@ -53,6 +53,9 @@ import filmic from './src/screens/filmic';
 
 import AsyncStorageHelper from './src/lib/AsyncStorageHelper'
 import { NativeBaseProvider } from 'native-base';
+import filmicList from './src/screens/filmicList';
+import filmicLickList from './src/screens/filmicLickList';
+import filmicFullView from './src/screens/filmicFullView';
 const Stack = createStackNavigator();
 const usersCollection = firestore().collection('users');
 const onlineCollection = firestore().collection('online');
@@ -343,6 +346,9 @@ const App = () => {
             <Stack.Screen name="ContactFile" component={ContactFile} />
             <Stack.Screen name="PrivacyPolicy" component={PrivacyPolicy} />
             <Stack.Screen name='filmic' component={filmic} />
+            <Stack.Screen name='filmicList' component={filmicList} />
+            <Stack.Screen name='filmicLickList' component={filmicLickList} />
+            <Stack.Screen name='filmicFullView' component={filmicFullView} />
           </Stack.Navigator>
         </NavigationContainer>
       </NativeBaseProvider>

@@ -742,7 +742,7 @@ const contact = ({ navigation, route }) => {
 
 
 
-        <TouchableOpacity onPress={() => { gotoContactList() }} >
+        <TouchableOpacity>
           <SvgXml xml={sync} style={styles.icon1} />
         </TouchableOpacity>
 

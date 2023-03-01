@@ -7,7 +7,7 @@ function Headermain(props) {
   const { navigation, doneProcess } = props;
   return (
     <SafeAreaView style={styles.container}>
-      <TouchableOpacity onPress={props.back} style={styles.innercontainer}>
+      <TouchableOpacity style={styles.innercontainer}>
         <SvgXml
           xml={back}
           style={styles.icon}
