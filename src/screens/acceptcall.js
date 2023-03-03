@@ -14,6 +14,7 @@ import {SvgXml} from 'react-native-svg';
 import {volume, silent, mute, keypad, phonewhite} from '../assets/chaticons';
 const Acceptcall = (props) => {
   const [colour, setColour] = useState(['#F2853E', '#F77E52', '#FD7668']);
+  
   const {navigation} = props;
   return (
     <View style={styles.container}>
